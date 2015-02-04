@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Documentation{% endblock %}
+
+{% block content %}
+<p>libmodbus is a free software library to send/receive data according to the
+  Modbus protocol. This library is written in C and supports RTU (serial) and
+  TCP (Ethernet) communications.</p>
+
+<p>The license of libmodbus is LGPL v2.1+ and the licence of programs in the
+tests directory is BSD 3-clause.</p>
+
+<p>The documentation is provided with libmodbus releases as man pages (generated from <a href="http://github.com/stephane/libmodbus/doc/">doc sources</a>). You can also browse the documentation of the different releases of libmodbus:</p>
+<ul>
+  <li><a href="/docs/v{{ config.STABLE_VERSION }}">v{{ config.STABLE_VERSION }}</a></li>
+  <li><a href="/docs/v{{ config.UNSTABLE_VERSION }}">v{{ config.UNSTABLE_VERSION }}</a></li>
+</ul>
+
+See the <a href="https://github.com/stephane/libmodbus/wiki/">Wiki</a> for general informations.
+
+<h2>Code Sample</h2>
+
+<pre class="code">  modbus_t <span style='color:#808030; '>*</span>mb<span style='color:#800080; '>;</span>
+  uint16_t tab_reg<span style='color:#808030; '>[</span><span style='color:#008c00; '>32</span><span style='color:#808030; '>]</span><span style='color:#800080; '>;</span>
+
+  mb <span style='color:#808030; '>=</span> modbus_new_tcp<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>127.0.0.1</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#008c00; '>1502</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  modbus_connect<span style='color:#808030; '>(</span>mb<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+  <span style='color:#696969; '>/* Read 5 registers from the address 0 */</span>
+  modbus_read_registers<span style='color:#808030; '>(</span>mb<span style='color:#808030; '>,</span> <span style='color:#008c00; '>0</span><span style='color:#808030; '>,</span> <span style='color:#008c00; '>5</span><span style='color:#808030; '>,</span> tab_reg<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+  modbus_close<span style='color:#808030; '>(</span>mb<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  modbus_free<span style='color:#808030; '>(</span>mb<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+</pre>
+
+<h2>External Documentation</h2>
+<ul>
+  <li><a href="http://www.modbus.org/specs.php">Modbus Specifications and Implementation Guides</a>, this page contains links to the following documents:
+    <ul>
+      <li>MODBUS Protocol Specification (Modbus_Application_Protocol_V1_1b.pdf)</li>
+      <li>Modbus Serial Line Protocol and Implementation Guide V1.02 (Modbus_over_serial_line_V1_02.pdf)</li>
+      <li>MODBUS Over Serial Line FOR LEGACY APPLICATIONS ONLY (PI_MBUS_300.pdf)</li>
+      <li>MODBUS TCP/IP (Modbus_Messaging_Implementation_Guide_V1_0b.pdf)</li>
+      <li>Object Messaging Specification for the Modbus TCP Protocol (Object_Messaging_Protocol_ExtensionsVers1.1.doc)</li>
+    </ul>
+  </li>
+  <li>
+    <a href="http://en.wikipedia.org/wiki/Modbus">Wikipedia page of Modbus</a>
+</ul>
+{% endblock %}

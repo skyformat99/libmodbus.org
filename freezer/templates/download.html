@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Download{% endblock %}
+
+{% block content %}
+  <p>Download the tarball of the version you want and run <code>./configure; make; make install;</code> to compile and install libmodbus on your system.</p>
+
+  <p>Two versions of libmodbus are currently maintained:</p>
+  <ul>
+    <li>Stable release is <a href="{{ config.RELEASES_URL }}libmodbus-{{ config.STABLE_VERSION }}.tar.gz">
+      libmodbus-{{ config.STABLE_VERSION }}.tar.gz</a> ({{ config.STABLE_DATE }})
+    </li>
+    <li>Development release is <a href="{{ config.RELEASES_URL }}libmodbus-{{ config.UNSTABLE_VERSION }}.tar.gz">
+      libmodbus-{{ config.UNSTABLE_VERSION }}.tar.gz</a> ({{ config.UNSTABLE_DATE }})
+    </li>
+  </ul>
+
+  <p>The latest stable release is also available in many Linux distributions:</p>
+  <ul>
+    <li><a href="https://community.dev.fedoraproject.org/packages/libmodbus">Fedora</a></li>
+    <li><a href="http://packages.debian.org/search?keywords=libmodbus">Debian</a></li>
+    <li><a href="http://packages.ubuntu.com/search?keywords=libmodbus">Ubuntu</a></li>
+    <li><a href="http://buildroot.uclibc.org/">Buildroot</a></li>
+    <li><a href="http://pdb.finkproject.org/pdb/package.php/libmodbus">Fink</a></li>
+  </ul>
+
+  <p>You can also browse the source code on <a href="http://github.com/stephane/libmodbus">stephane/libmodbus</a> or clone with the command: <pre>$ git clone git://github.com/stephane/libmodbus</pre> to compile and test the latest version.</p>
+{% endblock %}

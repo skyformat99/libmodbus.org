@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>libmodbus.org - {% block title %}News{% endblock %}</title>
+    <meta name="keywords" content="libmodbus, modbus, library, C, Open Source, linux, mac, windows, openbsd, LGPL"/>
+    <meta name="author" content="Stéphane Raimbault">
+    <meta name="description" content="libmodbus is a free software library to send/receive data with a device which respects the Modbus protocol.">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1116546-3']);
+      _gaq.push(['_setDomainName', '.libmodbus.org']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <a href="http://github.com/stephane/libmodbus">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" />
+    </a>
+
+    <div id="container">
+      <table class="download">
+	<tr>
+          <td>
+	    <a href="{{ config.RELEASES_URL }}libmodbus-{{ config.STABLE_VERSION }}.tar.gz">
+            <img border="0" width="90" src="{{ url_for('static', filename='img/stable.png') }}">
+            </a><span class="release">v{{ config.STABLE_VERSION }}</span>
+          </td>
+	  {% if config.UNSTABLE_VERSION %}
+	  <td>
+            <a href="{{ config.RELEASES_URL }}libmodbus-{{ config.UNSTABLE_VERSION }}.tar.gz">
+              <img border="0" width="90" src="{{ url_for('static', filename='img/unstable.png') }}">
+            </a><span class="release">v{{ config.UNSTABLE_VERSION }}</span>
+          </td>
+          {% endif %}
+	</tr>
+      </table>
+
+      <h1><a href="{{ url_for('home') }}">libmodbus</a></h1>
+
+      <div class="teaser">
+	A Modbus library for Linux, Mac OS X, FreeBSD, QNX and Win32
+      </div>
+
+      {% block fullcontent %}
+      <ul id="menu">
+	<li{% if selected == 'news' %} class="selected"{% endif %}>
+          <a href="{{ url_for('news') }}">News</a></li>
+	<li{% if selected == 'download' %} class="selected"{% endif %}>
+          <a href="{{ url_for('download') }}">Download</a></li>
+	<li{% if selected == 'documentation' %} class="selected"{% endif %}>
+          <a href="{{ url_for('documentation') }}">Documentation</a></li>
+	<li{% if selected == 'reportbug' %} class="selected"{% endif %}>
+          <a href="{{ url_for('reportbug') }}">Report a Bug</a>
+        </li>
+      </ul>
+
+      {% block content %}
+      {% endblock content %}
+
+      {% endblock fullcontent %}
+      <div class="footer">
+	libmodbus.org
+      </div>
+    </div>
+  </body>
+</html>
