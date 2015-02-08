@@ -11,10 +11,12 @@ import werkzeug
 
 from .app import app
 
+
 @app.template_filter()
 def markdown(text):
     return markdown_module.markdown(
-        text, extensions=['codehilite(guess_lang=False)'])
+        text,
+        extensions=['codehilite(guess_lang=False)', 'freezer.link_issue'])
 
 
 class Article(object):

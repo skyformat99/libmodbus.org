@@ -8,10 +8,12 @@
   <section class="article_list">
   {% for article in articles %}
     <article>
-      <h3><a href="{{ article.url() }}">{{ article.title }}</a></h3>
-      <p>{{ html5_date(article.published) }}</p>
-      {{ article.summary|default|markdown|safe }}
-      <p><a href="{{ article.url() }}">Read more…</a></p>
+      <header class="article-header">
+        <a class="article-title" href="{{ article.url() }}">{{ article.title }}</a>
+        <br>
+        {{ article.summary|default|markdown|safe }}
+        <span class="article-date">{{ html5_date(article.published) }}</span>
+      </header>
     </article>
   {% endfor %}
   </section>

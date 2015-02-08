@@ -6,14 +6,18 @@
 {% block content %}
 {% if article.published|d %}
   <article>
-    <header>
-      <h1>{{ article.title }}</h1>
-      <p>On {{ utils.html5_date(article.published) }}
-        {% for tag in article.tags|d([]) -%}
-          {% if loop.first %}in {% else %}, {% endif -%}
-          <a href="{{ url_for('tag', name=tag) }}">{{ tag }}</a>
-        {%- endfor %}
-      </p>
+    <header class="article-header">
+      <a class="article-title" href="{{ url_for('news') }}">{{ article.title }}</a>
+      <br>
+      <span class="article-date">{{ utils.html5_date(article.published) }}</span>
+      {% for tag in article.tags|d([]) -%}
+        {% if loop.first -%}
+          <span class="article-date">in</span>
+        {% else %}
+          ,
+        {% endif -%}
+        <a href="{{ url_for('tag', name=tag) }}">{{ tag }}</a>
+      {%- endfor %}
     </header>
     {{ article.html|safe }}
   </article>
