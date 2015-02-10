@@ -1,3 +1,4 @@
+import shutil
 import subprocess
 
 from flask.ext.script import Manager, Server
@@ -15,6 +16,13 @@ def freeze(serve=False):
     if serve:
         freezer.run(debug=True)
     else:
+        freezer_destination = app.config['FREEZER_DESTINATION']
+        if freezer_destination:
+            print("Deleting old build directory: %s" % freezer_destination)
+            shutil.rmtree(freezer_destination, ignore_errors=True)
+        else:
+            print("Not removing build directory because is not explicitly defined.")
+
         urls = freezer.freeze()
         print("Built %i files." % len(urls))
 
