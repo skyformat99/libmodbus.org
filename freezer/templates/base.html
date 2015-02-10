@@ -7,13 +7,14 @@
     <meta name="author" content="Stéphane Raimbault">
     <meta name="description" content="libmodbus is a free software library to send/receive data with a device which respects the Modbus protocol.">
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% assets filters="cssutils", output="css/base.min.css", "css/style.css" -%}
+      <link type="text/css" rel="stylesheet" href="{{ ASSET_URL }}">
+    {%- endassets %}
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-1116546-3']);
       _gaq.push(['_setDomainName', '.libmodbus.org']);
       _gaq.push(['_trackPageview']);
-
       (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';

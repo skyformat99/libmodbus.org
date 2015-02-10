@@ -3,4 +3,5 @@
 build/
 dist/
 freezer/config.py
-
+freezer/static/.webassets-cache/
+freezer/static/css/base.min.css

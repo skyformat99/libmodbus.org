@@ -27,6 +27,8 @@ setup(
     install_requires=[
         'Flask>=0.10.1',
         'Flask-Script',
+        'Flask-Assets',
+        'cssutils',
         'Frozen-Flask>=0.11',
         'Markdown>=2.5',
         'PyYAML',
