@@ -16,24 +16,24 @@ def by_date(articles):
 
 
 @app.route('/', endpoint='home')
-@app.route('/news')
+@app.route('/news/')
 def news():
     return render_template(
         'news.html', selected='news',
         articles=by_date(Article.get_posts()))
 
 
-@app.route('/documentation')
+@app.route('/documentation/')
 def documentation():
     return render_template('documentation.html', selected='documentation')
 
 
-@app.route('/download')
+@app.route('/download/')
 def download():
     return render_template('download.html', selected='download')
 
 
-@app.route('/reportbug')
+@app.route('/reportbug/')
 def reportbug():
     return render_template('reportbug.html', selected='reportbug')
 
@@ -55,7 +55,7 @@ def tags():
         ])
 
 
-@app.route('/tags/<name>')
+@app.route('/tags/<name>/')
 def tag(name):
     articles = by_date(
         a for a in Article.get_posts() if name in a.meta.get('tags', [])
