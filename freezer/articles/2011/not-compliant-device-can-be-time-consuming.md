@@ -8,7 +8,7 @@ answered only to request sent by the modpoll program (proprietary software).
 
 After many emails and the help of Wireshark, we have discovered modpoll uses the
 unit identifier as slave ID for TCP requests, according to
-the[Modbus specs](http://www.modbus.org/specs.php) that's incorrect (cf page 23
+the [Modbus specs](http://www.modbus.org/specs.php) that's incorrect (cf page 23
 of Modbus Messaging Implementation Guide v1.0b) but else the device drops the
 request!
 
