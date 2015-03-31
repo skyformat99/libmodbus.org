@@ -97,4 +97,4 @@ def feed():
 
 @app.errorhandler(404)
 def not_found(_e):
-    return render_template('404.html'), 404
+    return render_template('404.html', selected=''), 404
