@@ -6,7 +6,7 @@ summary: Many fixes and improvements on data mapping, float handling and RTS.
 The structure `modbus_mapping_t` has been extended to include the new start
 addresses (ABI break).
 
-New function: http://libmodbus.org/docs/v3.1.2/modbus_mapping_new_start_address.html
+New function: [modbus_mapping_new_start_address](http://libmodbus.org/docs/v3.1.3/modbus_mapping_new_start_address.html)
 
 - New bswap macros for Max OSX by Jakob Bysewski.
 - Fix "wildcard address" in TCP IPv6 by Shoichi Sakane.
